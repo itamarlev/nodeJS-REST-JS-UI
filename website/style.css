@@ -8,8 +8,12 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   color: #333;
 }
+.user{
+  display: inline-block;
+}
 
 .user-wrapper{
+  text-align: center;
   padding: 1rem;
   color: #ed1c40;
   font-weight: bold;

@@ -37,3 +37,8 @@ The data is automatically being saved to the DB.</br></br>
 Searching an instrument is made at the top of each table.</br>
 Just start typing the name of the Instrument. The search is not case sensitive.
 
+## Future enhancements
+The server side was created with API to change the Market Instruments table as well</br>
+User Id - should be changed to have real data regarding the projects users</br>
+The search can be enhanced as well - will be more efficient if the Market Instruments list is huge to get only the first few rows and have the search fetch specific results from the DB.</br>
+

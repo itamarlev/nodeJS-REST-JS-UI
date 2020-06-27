@@ -30,13 +30,6 @@ app.use(function (req, res, next) {
       next();  
 });
 
-
-
-// simple route
-app.get("/", (req, res) => {
-  res.json({ message: "Welcome to bezkoder application." });
-});
-
 require("./routes/instrument.routes")(app);
 
 // set port, listen for requests
