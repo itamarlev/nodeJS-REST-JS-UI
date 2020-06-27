@@ -68,8 +68,22 @@ module.exports = {
     );
   },
   delete: (req, res) => {
-    favorite.remove(req.params.userId, req.params.instrumentId, (err, data) => {
-      if (err) {
+    // Validate request
+    if (!req.body) {
+      res.status(400).send({
+        message: "Content can not be empty!"
+      });
+    }
+
+    // Create Favorite to delete
+    const favorite = new Favorite({
+      userId: req.body.userId,
+      instrumentId: req.body.instrumentId
+    });
+
+    // Save Favorite in the database
+    Favorite.remove(favorite,  (err, data) => {
+      if (err){
         if (err.kind === "not_found") {
           res.status(404).send({
             message: `Not found Instrument with id ${req.params.instrumentId} for user id  ${req.params.userId}.`
@@ -79,7 +93,7 @@ module.exports = {
             message: "Could not delete Instrument with id" + req.params.instrumentId + " for user id " + req.params.userId
           });
         }
-      } else res.send({ message: `Instrument was deleted successfully!` });
+      } else res.status(200).send({ message: `Instrument was deleted successfully!` });
     });
   }
 }

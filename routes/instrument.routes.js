@@ -12,7 +12,7 @@ module.exports = app => {
     app.post("/favorite", favorites.create);
 
     // Delete a favorite 
-    app.delete("/favorites/:userId/:instrumentId", favorites.delete);
+    app.delete("/favorite", favorites.delete);
 
     // Create a new instrument
     app.post("/instrument", instruments.create);

@@ -7,7 +7,6 @@ const Favorite = function(favorite) {
 };
 
 Favorite.create = (newFavorite, result) => {
-  console.log(newFavorite);
   sql.query("INSERT INTO favorites SET ?", newFavorite, (err, res) => {
     if (err) {
       console.log("error: ", err);
@@ -40,8 +39,8 @@ Favorite.findById = (userId, result) => {
 };
 
 
-Favorite.remove = (userId, instrumentId, result) => {
-  sql.query("DELETE FROM favorites WHERE userId = ? and instrumentId = ? ", id,instrumentId, (err, res) => {
+Favorite.remove = (favoriteToRemove, result) => {
+  sql.query("DELETE FROM favorites WHERE userId = ? and instrumentId = ? ", [favoriteToRemove.userId, favoriteToRemove.instrumentId], (err, res) => {
     if (err) {
       console.log("error: ", err);
       result(null, err);
@@ -54,20 +53,7 @@ Favorite.remove = (userId, instrumentId, result) => {
       return;
     }
 
-    console.log("deleted favorites with id: ", id);
-    result(null, res);
-  });
-};
-
-Favorite.removeAll = (userId, result) => {
-  sql.query("DELETE FROM favorites where userId = ?", userId, (err, res) => {
-    if (err) {
-      console.log("error: ", err);
-      result(null, err);
-      return;
-    }
-
-    console.log(`deleted ${res.affectedRows} favorite`);
+    console.log("deleted favorites with id: ", favoriteToRemove.instrumentId);
     result(null, res);
   });
 };

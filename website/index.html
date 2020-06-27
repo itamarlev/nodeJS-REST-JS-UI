@@ -1,18 +1,29 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <link rel="stylesheet" href="bootstrap.css" media="screen">
+    <link rel="stylesheet" href="style.css" media="screen">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
 </head>
 <body>
-    <div class="favorite"></div>
-    <div class="instruments"></div>
-    
+    <div class="all">
+        <div class="user-wrapper">
+            <label>User ID
+                <input class="user" type="text" name="user id" value="1" onblur="switchUser(value)">
+            </label>
+        </div>
+        <div class="wrapper">
+            <div class="favorite"></div>
+            <div class="instruments"></div>
+        </div>
+    </div>
 
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
     crossorigin="anonymous">
    </script>
    <script type="text/javascript" src="script.js">
    </script>
+    
 </body>
 </html>
 
